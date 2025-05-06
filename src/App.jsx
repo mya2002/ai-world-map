@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";  // 引入 React Router
+import { HashRouter as Router, Routes, Route } from "react-router-dom";  // 改為 HashRouter
 import WorldMap from "./WorldMap";  // 引入 WorldMap 元件
 import './index.css';  // 確保引入 CSS
 
@@ -14,7 +14,7 @@ function Home() {
         <div className="text-center text-white">
           <h1 className="text-4xl font-bold mb-4">歡迎來到AI科普教育平台</h1>
           <button
-            onClick={() => window.location.href = "/map"}  // 點擊按鈕跳轉至世界地圖
+            onClick={() => window.location.href = "#/map"}  // 點擊按鈕跳轉至世界地圖
             className="px-6 py-3 bg-yellow-500 text-black text-lg font-semibold rounded-lg hover:bg-yellow-400"
           >
             Start
@@ -27,14 +27,13 @@ function Home() {
 
 function App() {
   return (
-    <Router basename="/ai-world-map"> {/* 設置 basename，確保路由正確處理 */}
+    <Router basename="/ai-world-map"> {/* 可以保留 basename 設置 */}
       <Routes>
         <Route path="/" element={<Home />} /> {/* 設定首頁路由 */}
-        <Route path="/map" element={<WorldMap currentChapter={1} />} /> {/* 設定世界地圖頁面路由 */}
+        <Route path="/map" element={<WorldMap />} /> {/* 設定世界地圖頁面路由 */}
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
