@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";  // 引入 React Router
-import worldMap from "./worldMap";  // 引入 WorldMap 元件
+import WorldMap from "./WorldMap";  // 引入 WorldMap 元件
 import './index.css';  // 確保引入 CSS
 
 function Home() {
@@ -30,7 +30,7 @@ function App() {
     <Router basename="/ai-world-map"> {/* 設置 basename，確保路由正確處理 */}
       <Routes>
         <Route path="/" element={<Home />} /> {/* 設定首頁路由 */}
-        <Route path="/map" element={<worldMap />} /> {/* 設定世界地圖頁面路由 */}
+        <Route path="/map" element={<WorldMap currentChapter={1} />} /> {/* 設定世界地圖頁面路由 */}
       </Routes>
     </Router>
   );
