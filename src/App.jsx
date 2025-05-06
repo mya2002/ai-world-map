@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";  // 使用 HashRouter
 import WorldMap from "./WorldMap";  // 引入 WorldMap 元件
+import ChapterOne from "./ChapterOne";  // 引入 ChapterOne 元件
 import './index.css';  // 確保引入 CSS
 
 function Home() {
@@ -23,10 +24,11 @@ function Home() {
 
 function App() {
   return (
-    <Router basename="/ai-world-map">  {/* 保留 basename 配置 */}
+    <Router>  {/* 刪除 basename */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/map" element={<WorldMap />} />
+        <Route path="/chapter/1" element={<ChapterOne />} />
       </Routes>
     </Router>
   );

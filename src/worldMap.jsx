@@ -3,9 +3,16 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const chapters = [
-  { id: 1, name: "新手村", unlocked: true, position: "left-1/4 top-1/4" },
-  { id: 2, name: "AI森林", unlocked: false, position: "left-1/2 top-1/3" },
-  { id: 3, name: "資料之海", unlocked: false, position: "left-3/4 top-1/2" },
+  { name: "第一章   靜語山丘", unlocked: true, className: "left-1/5 top-[10%]" },
+  { name: "第二章   靜湖之鏡", unlocked: false, className: "left-1/5 top-[25%]" },
+  { name: "第三章   破碎的教室", unlocked: false, className: "left-1/5 top-[40%]" },
+  { name: "第四章   草原上的比賽", unlocked: false, className: "left-1/5 top-[55%]" },
+  { name: "第五章   黑盒之門", unlocked: false, className: "left-1/5 top-[70%]" },
+  { name: "第六章   鏡城遺跡", unlocked: false, className: "left-4/5 top-[10%]" },
+  { name: "第七章   生成谷", unlocked: false, className: "left-4/5 top-[25%]" },
+  { name: "第八章   迷宮的記憶", unlocked: false, className: "left-4/5 top-[40%]" },
+  { name: "第九章   斷章的書庫", unlocked: false, className: "left-4/5 top-[55%]" },
+  { name: "第十章   最後一頁", unlocked: false, className: "left-4/5 top-[70%]" },
 ];
 
 const WorldMap = ({ currentChapter = 1 }) => {
@@ -14,31 +21,29 @@ const WorldMap = ({ currentChapter = 1 }) => {
   return (
     <div className="relative w-full h-screen bg-gradient-to-b from-blue-200 to-green-100 overflow-hidden flex items-start justify-center">
       {/* 外層容器，使用 flex 讓內容左右置中 */}
-      
+
       <div className="absolute flex flex-col items-center w-full"> {/* 內部內容左右居中 */}
         {/* 標題 */}
-        <h1 className="text-3xl font-bold mb-6">Elia 的 AI 旅程</h1>
+        <h1 className="text-3xl font-bold mb-6">歡迎來到新手村</h1>
 
-        {chapters.map((chapter) => {
-          const isCurrent = chapter.id === currentChapter;
+        {chapters.map((chapter, index) => {
+          const isCurrent = index + 1 === currentChapter;
           const isUnlocked = chapter.unlocked || isCurrent;
 
           return (
             <motion.div
-              key={chapter.id}
-              className={`absolute ${chapter.position} flex flex-col items-center`}
+              key={index}
+              className={`absolute ${chapter.className} flex flex-col items-center`}
               whileHover={{ scale: isUnlocked ? 1.1 : 1 }}
               onClick={() => {
-                if (isUnlocked) navigate(`/chapter/${chapter.id}`);
+                if (isUnlocked) navigate(`/chapter/${index + 1}`);
               }}
             >
-              {/* 小圓圈節點 */}
+              {/* 小圓圈節點  不顯示數字 */}
               <div
-                className={`w-16 h-16 rounded-full border-4 ${
-                  isUnlocked ? "bg-yellow-300 border-yellow-500" : "bg-gray-300 border-gray-500"
-                } flex items-center justify-center cursor-pointer shadow-md`}
+                className={`w-16 h-16 rounded-full border-4 ${isUnlocked ? "bg-yellow-300 border-yellow-500" : "bg-gray-300 border-gray-500"
+                  } flex items-center justify-center cursor-pointer shadow-md`}
               >
-                <span className="text-sm font-bold">{chapter.id}</span>
               </div>
 
               {/* 關卡名稱 */}
@@ -59,6 +64,7 @@ const WorldMap = ({ currentChapter = 1 }) => {
             </motion.div>
           );
         })}
+
       </div>
     </div>
   );
