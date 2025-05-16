@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm: React.FC = () => {
+  const navigate = useNavigate(); // 新增
+
+  const handleRegisterClick = () => {
+    navigate("/register"); // 點擊註冊跳轉頁面
+  };
+
   return (
     <div className="w-[522px] bg-[#F9E5C8] rounded-2xl shadow-[0px_4px_12px_0px_rgba(0,0,0,0.10)] p-8 flex flex-col items-center md:w-[450px] sm:w-full">
       <div className="text-[#BD8383] text-center font-metrophobic text-xl py-[18px] px-[10px] mb-4">
@@ -11,7 +18,9 @@ export const LoginForm: React.FC = () => {
         <div className="text-[#BD8383] text-center font-metrophobic text-xl">
           還不是會員？
         </div>
-        <button className="text-[#BD8383] text-center font-metrophobic text-xl py-[6px] px-3 rounded-lg bg-[rgba(219,192,102,0.40)]">
+        <button
+        onClick={handleRegisterClick} 
+        className="text-[#BD8383] text-center font-metrophobic text-xl py-[6px] px-3 rounded-lg bg-[rgba(219,192,102,0.40)]">
           註冊
         </button>
       </div>
