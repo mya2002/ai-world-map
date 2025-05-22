@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useUserProgress } from "../hooks/useUserProgress";
 import "../styles/animations.css";
+import { useNavigate } from "react-router-dom";
 
 const WorldMap = () => {
   const { progress, loading, error, updateProgress } = useUserProgress();
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const navigate = useNavigate();
+
 
   const handleRegionClick = async (region) => {
     if (!progress || progress[region] === false) {
@@ -13,6 +16,10 @@ const WorldMap = () => {
 
     setSelectedRegion(region);
     // Add navigation logic here
+
+    if (region === "newbie") {
+    navigate("/level-select"); // 這裡導向你設定的 LevelSelectionMap 頁面
+  }
   };
 
   if (loading) {

@@ -73,3 +73,6 @@ const handleGoogleLogin = async () => {
     </div>
   );
 };
+
+export default LoginForm;
+

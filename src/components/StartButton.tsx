@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import startIcon from "../assets/images/startIcon.png";
 
 interface StartButtonProps {
   onClick?: () => void;
@@ -8,11 +9,19 @@ interface StartButtonProps {
 
 export const StartButton: React.FC<StartButtonProps> = ({ onClick }) => {
   return (
-    <button
+     <button
       onClick={onClick}
-      className="bg-[#E9D7BD] relative px-16 pt-2 pb-16 mb-0 max-w-full rounded-[999px] w-[516px] max-md:px-5 max-md:mb-2.5 max-md:text-4xl"
+      className="relative w-[516px] h-[120px] max-w-full rounded-[30px] overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${startIcon})`, // 這裡用背景圖的方式填滿整個按鈕
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      START
+      {/* <span className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-blue-700">
+        
+      </span> */}
     </button>
   );
 };

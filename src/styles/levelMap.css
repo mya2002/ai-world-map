@@ -1,0 +1,86 @@
+.level-selection-page {
+  width: 100%;
+  min-height: 1024px;
+  position: relative;
+}
+
+.level-selection-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  min-height: 1024px;
+  padding-top: 342px;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.map-header-image {
+  aspect-ratio: 1.72;
+  object-fit: contain;
+  object-position: center;
+  width: 950px;
+  align-self: center;
+  margin-left: 21px;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.level-buttons-container {
+  position: relative;
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  margin-top: 57px;
+  min-height: 76px;
+  width: 100%;
+  align-items: center;
+  gap: 100px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.level-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.level-button:hover {
+  transform: scale(1.1);
+}
+
+.level-button:focus {
+  outline: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.level-button-image {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 991px) {
+  .level-selection-container {
+    padding-top: 100px;
+  }
+
+  .level-buttons-container {
+    margin-top: 40px;
+    gap: 40px;
+  }
+}
